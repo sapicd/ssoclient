@@ -63,7 +63,7 @@ def login_api(usr, pwd, set_state, max_age, is_secure):
             if set_state:
                 session.update(
                     signin=True,
-                    username=usr,
+                    username=data.get("username") or usr,
                     avatar=data.get("avatar"),
                     is_admin=data.get("is_admin"),
                     nickname=data.get("nick_name"),

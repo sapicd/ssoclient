@@ -2,7 +2,7 @@ picbed-ssoclient
 ================
 
 这是基于 `picbed <https://github.com/staugur/picbed>`_ 的一个小的扩展模块，
-用来接入`staugur/passport <https://github.com/staugur/passport>`_ 登录。
+用来接入 `staugur/passport <https://github.com/staugur/passport>`_ 登录。
 
 安装
 ------
