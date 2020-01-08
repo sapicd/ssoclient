@@ -56,14 +56,15 @@ def login_api(usr, pwd, set_state, max_age, is_secure):
     if g.cfg.passport_url:
         res = post(g.cfg.passport_url, dict(
             account=usr,
-            password=pwd
+            password=pwd,
+            fields="is_admin,avatar,nick_name,domain_name"
         ))
         if res["code"] == 0:
             data = res["data"]
             if set_state:
                 session.update(
                     signin=True,
-                    username=data.get("username") or usr,
+                    username=data.get("domain_name") or usr,
                     avatar=data.get("avatar"),
                     is_admin=data.get("is_admin"),
                     nickname=data.get("nick_name"),
