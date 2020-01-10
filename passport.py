@@ -9,7 +9,7 @@
     :license: BSD 3-Clause, see LICENSE for more details.
 """
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 __author__ = 'staugur <staugur@saintic.com>'
 __description__ = '通过Passport认证'
 
@@ -89,3 +89,7 @@ def before_request():
             is_admin=session.get("is_admin"),
             nickname=session.get("nickname"),
         )
+
+
+def profile_update(**kwargs):
+    session.update(kwargs)
