@@ -9,7 +9,7 @@
     :license: BSD 3-Clause, see LICENSE for more details.
 """
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 __author__ = 'staugur <staugur@saintic.com>'
 __description__ = '通过Passport认证'
 
@@ -66,7 +66,6 @@ def login_api(usr, pwd, set_state, max_age, is_secure):
                     signin=True,
                     username=data.get("domain_name") or usr,
                     avatar=data.get("avatar"),
-                    is_admin=data.get("is_admin"),
                     nickname=data.get("nick_name"),
                 )
             return make_response(jsonify(res))
@@ -76,7 +75,6 @@ def logout_handler():
     session.pop("signin", None)
     session.pop("username", None)
     session.pop("avatar", None)
-    session.pop("is_admin", None)
     session.pop("nickname", None)
 
 
@@ -86,7 +84,6 @@ def before_request():
         g.userinfo = dict(
             username=session.get("username"),
             avatar=session.get("avatar"),
-            is_admin=session.get("is_admin"),
             nickname=session.get("nickname"),
         )
 
