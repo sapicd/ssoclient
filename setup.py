@@ -42,7 +42,7 @@ setup(
     author_email=email,
     description='An auth method for passport.',
     long_description=_get_readme(),
-    url='https://github.com/staugur/picbed-ssoclient',
+    url='https://github.com/sapicd/ssoclient',
     py_modules=['passport', ],
     zip_safe=False,
 )

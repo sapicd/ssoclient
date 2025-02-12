@@ -9,20 +9,15 @@
     :license: BSD 3-Clause, see LICENSE for more details.
 """
 
-__version__ = '0.1.2'
+__version__ = '0.2.0'
 __author__ = 'staugur <staugur@saintic.com>'
 __description__ = '通过Passport认证'
 
 
 import json
 from flask import g, jsonify, session, make_response
-from flask._compat import PY2
-if PY2:
-    from urllib import urlencode
-    from urllib2 import Request, urlopen
-else:
-    from urllib.parse import urlencode
-    from urllib.request import Request, urlopen
+from urllib.parse import urlencode
+from urllib.request import Request, urlopen
 
 site_auth = True
 intpl_hooksetting = u'''
@@ -45,7 +40,7 @@ def post(url, data=None):
     req = Request(
         url,
         data=data,
-        headers={"User-Agent": "picbed-ssoclient/v1"}
+        headers={"User-Agent": "ssoclient/v1"}
     )
     res = urlopen(req)
     res = res.read()
